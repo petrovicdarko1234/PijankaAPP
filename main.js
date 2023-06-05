@@ -3,12 +3,21 @@ let pesme = ["Makedonsko devojce", "Kad sam decak bio", "Ko se s nama druzi", "E
 
 let slusaneP = []
 
+let ide = -1
+
+let listaPesama = document.getElementById("lista2");
+
+let slusanepesme = document.getElementById("lista1");
+
+
+window.onload = polazne
+
 function nesto() {
 
 
     let listaPesama = document.getElementById("lista");
 
-
+    listaPesama.innerHTML = ""
     for (let i = 0; i < pesme.length; i++) {
         listaPesama.innerHTML += "<li>" + pesme[i] + "</li>";
 
@@ -16,34 +25,66 @@ function nesto() {
 
 
 }
-// poziva nesto kad se stranica
-//window.onload = nesto
+// poziva nesto kad se stranica upali
+//window.onload = funkcija
+
+function polazne() {
+    podesi()
+    slusane()
+}
 
 function trenutna() {
-    let x = Math.random() * (pesme.length - 0) + 0
-    let y = (Math.floor(x))
-    document.getElementById("ideovaj").innerHTML = pesme[y]
 
 
-    slusaneP.push(pesme.splice(y, 1))
+    slusaneP.push(pesme.splice(ide, 1))
     console.log(slusaneP)
+    podesi()
 
 }
 
-function preskoci() {
-    let x = Math.random() * (pesme.length - 0) + 0
-    let y = (Math.floor(x))
-    document.getElementById("ideovaj").innerHTML = pesme[y]
 
-
-}
 
 function slusane() {
-    document.getElementById("slusanepesme").innerHTML = slusaneP
+
+
+
+    slusanepesme.innerHTML = ""
+
+
+    for (let i = 0; i < slusaneP.length; i++) {
+        slusanepesme.innerHTML += "<li>" + slusaneP[i] + "</li>";
+
+    }
 }
+
 
 function preostale() {
-    document.getElementById("pp").innerHTML = pesme
+
+
+
+    listaPesama.innerHTML = ""
+    for (let i = 0; i < pesme.length; i++) {
+        listaPesama.innerHTML += "<li>" + pesme[i] + "</li>";
+
+    }
 }
 
+function podesi() {
+    let x = Math.random() * (pesme.length - 1)
+    let y = (Math.round(x))
+    document.getElementById("ideovaj").innerHTML = pesme[y]
+    ide = y
+}
 console.log(pesme)
+
+function proba() {
+
+    preostale()
+    setInterval(brisanje, 10000)
+
+}
+function brisanje() {
+    listaPesama.innerHTML = ""
+    slusanepesme.innerHTML = ""
+
+}

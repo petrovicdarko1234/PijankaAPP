@@ -3,6 +3,11 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-size: 60px;
+    color: white
+}
+
 .levo {
     background-color: brown;
 }
@@ -28,4 +33,16 @@ body {
 .druga-kontejner {
     margin-top: 50px;
 
+}
+
+ul {
+    list-style-position: inside;
+}
+
+.prvaLista {
+    color: #643843
+}
+
+.drugaLista {
+    color: white
 }
